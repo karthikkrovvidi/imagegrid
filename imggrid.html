@@ -1,0 +1,72 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    .gallery {
+  --s: 200px; 
+  
+  display: grid;
+  gap: 5px; 
+  grid: auto-flow var(--s)/repeat(3,var(--s));
+  place-items: center;
+  margin: calc(var(--s)/4);
+}
+.gallery > img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+}
+.gallery > img:nth-child(odd) {
+  border-radius: 50%;
+  width: 141%;
+}
+.gallery > img:nth-child(even) {
+  --_r: calc(var(--s)/1.414) at;
+  --_g: calc(var(--s)/-2),rgb(14, 14, 15) 100%,#00000000;
+  --_m:
+    radial-gradient(var(--_r) left 50% bottom var(--_g)),
+    radial-gradient(var(--_r) left 50% top    var(--_g)),
+    radial-gradient(var(--_r) top  50% right  var(--_g)),
+    radial-gradient(var(--_r) top  50% left   var(--_g)),
+    linear-gradient(rgb(11, 11, 11) 0 0);
+  -webkit-mask: var(--_m);
+          mask: var(--_m);
+  -webkit-mask-composite: destination-out;
+          mask-composite: exclude;
+}
+
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: grid;
+  place-content: center;
+  background-color: black;
+ 
+ 
+}
+  </style>
+  <title>Anime Image Grid</title>
+</head>
+<body >
+
+
+<div class="gallery">
+    <img src="ab2.jpg" >
+    <img src="abc.jpg" >
+    <img src="ab5.jpg" >
+    <img src="ab8.jpg" >
+    <img src="ab6.jpg" >
+    <img src="ab7.jpg" >
+    <img src="ab4.jpg" >
+    <img src="ab.jpg" >
+    <img src="ab3.jpg" >
+  </div>
+
+
+
+</body>
+</html>
